@@ -50,24 +50,15 @@ self.addEventListener('fetch', event => {
 					? entry.test(event.request.url)
 					: url.host === entry
 			))) {
-				const resp = await caches.match(event.request.url);
-				if (resp instanceof Response) {
-					return resp;
-				} else if (navigator.onLine) {
-					const resp = await fetch(event.request.url, {
-						mode: 'cors',
-						headers: event.request.headers,
-					});
-
-					if (resp instanceof Response) {
+				if (navigator.onLine) {
+					const resp = await fetch(event.request.url, {mode: 'cors'});
+					if (resp.ok) {
 						const cache = await caches.open(config.version);
-						cache.put(event.request.url, resp.clone());
-						return resp;
-					} else {
-						console.error(`Failed in request for ${event.request.url}`);
+						cache.put(event.request, resp.clone());
 					}
+					return resp;
 				} else {
-					console.error('Offline');
+					return caches.match(event.request.url);
 				}
 			} else {
 				return fetch(event.request.url);

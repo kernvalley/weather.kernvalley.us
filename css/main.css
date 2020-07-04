@@ -1,4 +1,5 @@
-main {
+#main {
+	grid-area: main;
 	--link-color: #049ccf;
 	--link-decoration: underline;
 }

@@ -11,6 +11,7 @@
 		<meta itemprop="keywords" content="weather, kern valley, kern river valley, kernville, lake isabella, bodfish, weldon, south lake, mountain mesa" />
 		<meta name="referrer" content="origin-when-cross-origin"/>
 		<meta name="mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta itemprop="thumbnailUrl" content="https://i.imgur.com/ocvXOdsl.png" />
 		<!-- Social data -->
 		<!-- Facebook | OpenGraph -->
@@ -33,11 +34,11 @@
 		<meta name="msapplication-TileColor" content="#221b7b" />
 		<meta name="msapplication-config" content="/browserconfig.xml" />
 		<meta name="theme-color" content="#221b7b" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="#221b7b" />
 		<title itemprop="headline">Kern Valley Weather</title>
-		<script type="module" src="/js/index.js" async=""></script>
-		<script type="module" src="https://cdn.kernvalley.us/components/weather-current.js" async=""></script>
-		<script type="module" src="https://cdn.kernvalley.us/components/weather-forecast.js" async=""></script>
-		<script type="module" src="https://cdn.kernvalley.us/components/ad-block.js" async=""></script>
+		<script type="text/javascript" src="https://polyfill.io/v3/polyfill.min.js" crossorigin="anonymous"></script>
+		<!-- <script type="module" src="/js/index.js" async=""></script> -->
+		<script src="/js/index.min.js" async=""></script>
 		<link rel="manifest" href="/manifest.json" />
 		<link rel="license" href="/LICENSE" />
 		<link rel="icon" href="/img/favicon.svg" type="image/svg+xml" sizes="any" />
@@ -47,16 +48,14 @@
 		<link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#221b7b" />
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="preload" href="/img/icons.svg" as="image" type="image/svg+xml" />
-		<link rel="stylesheet" href="/css/index.css" media="all" />
+		<!-- <link rel="stylesheet" href="/css/index.css" media="all" /> -->
+		<link rel="stylesheet" href="/css/index.min.css" media="all" />
 	</head>
 	<body id="top" class="grid font-main background-primary color-default overflow-x-hidden">
 		<header id="header" class="background-cover background-fixed">
 			<h1 class="center">Kern Valley Weather</h1>
 		</header>
-		<nav id="nav" class="sticky top shadow background-accent color-alt z-top">
-			<button is="login-button" title="Sign In" class="btn btn-accept" hidden="">Sign In</button>
-			<button is="logout-button" title="Sign Out" class="btn btn-reject" hidden="">Sign Out</button>
-		</nav>
+		<nav id="nav" class="sticky top shadow background-accent color-alt z-top"></nav>
 		<main id="main" class="card shadow">
 			<weather-forecast postalcode="93238" appid="41ff0542577756523c5fcfaaeabe89d7" class="card"></weather-forecast>
 			<ad-block>
@@ -66,7 +65,7 @@
 		<aside id="sidebar" class="card shadow">
 			<weather-current postalcode="93238" appid="41ff0542577756523c5fcfaaeabe89d7"></weather-current>
 			<ad-block url="https://events.kernvalley.us">
-				<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" slot="image">
+				<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" slot="image" aria-hidden="true">
 					<rect y="3.8323e-7" width="100" height="100" rx="20" ry="20" fill="#4688f4" fill-rule="evenodd"/>
 					<path d="m77.24 18.738h-5.0436v7.5654c0 1.4122-1.1096 2.5218-2.5218 2.5218h-10.087c-1.4122 0-2.5218-1.1096-2.5218-2.5218v-7.5654h-15.131v7.5654c0 1.4122-1.1096 2.5218-2.5218 2.5218h-10.087c-1.4122 0-2.5218-1.1096-2.5218-2.5218v-7.5654h-5.0436c-2.774 0-5.0436 2.2696-5.0436 5.0436v55.48c0 2.774 2.2696 5.0436 5.0436 5.0436h55.48c2.774 0 5.0436-2.2696 5.0436-5.0436v-55.48c0-2.774-2.2696-5.0436-5.0436-5.0436zm0 60.523h-55.48v-45.393h55.48zm-40.349-55.48h-5.0436v-10.087h5.0436zm30.262 0h-5.0436v-10.087h5.0436zm-25.218 20.174h-5.0436v-5.0436h5.0436zm10.087 0h-5.0436v-5.0436h5.0436zm10.087 0h-5.0436v-5.0436h5.0436zm10.087 0h-5.0436v-5.0436h5.0436zm-40.349 10.087h-5.0436v-5.0436h5.0436zm10.087 0h-5.0436v-5.0436h5.0436zm10.087 0h-5.0436v-5.0436h5.0436zm10.087 0h-5.0436v-5.0436h5.0436zm10.087 0h-5.0436v-5.0436h5.0436zm-40.349 10.087h-5.0436v-5.0436h5.0436zm10.087 0h-5.0436v-5.0436h5.0436zm10.087 0h-5.0436v-5.0436h5.0436zm10.087 0h-5.0436v-5.0436h5.0436zm10.087 0h-5.0436v-5.0436h5.0436zm-40.349 10.087h-5.0436v-5.0436h5.0436zm10.087 0h-5.0436v-5.0436h5.0436zm10.087 0h-5.0436v-5.0436h5.0436zm10.087 0h-5.0436v-5.0436h5.0436z" fill="#f9f9f9" fill-rule="evenodd"/>
 				</svg>
@@ -79,19 +78,19 @@
 			<div class="social-links cols-2">
 				<div class="cols inline-block">
 					<a class="block" href="https://github.com/kernvalley/" target="_blank" rel="external noopener">
-						<svg class="current-color icon social-icon">
+						<svg class="current-color icon social-icon" aria-hidden="true">
 							<use xlink:href="/img/icons.svg#mark-github" />
 						</svg>
 						<span>GitHub Profile</span>
 					</a>
 					<a class="block" href="https://github.com/kernvalley/weather.kernvalley.us" target="_blank" rel="external noopener">
-						<svg class="current-color icon social-icon">
+						<svg class="current-color icon social-icon" aria-hidden="true">
 							<use xlink:href="/img/icons.svg#repo" />
 						</svg>
 						<span>GitHub Repo</span>
 					</a>
 					<a class="block" href="https://github.com/kernvalley/weather.kernvalley.us/issues" target="_blank" rel="external noopener">
-						<svg class="current-color icon social-icon">
+						<svg class="current-color icon social-icon" aria-hidden="true">
 							<use xlink:href="/img/icons.svg#issue-opened" />
 						</svg>
 						<span>Report a Problem</span>
@@ -99,19 +98,19 @@
 				</div>
 				<div class="cols inline-block">
 					<a class="block" href="https://kernvalley.us" target="_blank" rel="external noopener" itemprop="sameAs">
-						<svg class="current-color icon social-icon">
+						<svg class="current-color icon social-icon" aria-hidden="true">
 							<use xlink:href="/img/icons.svg#web-browser" />
 						</svg>
 						<span>Website</span>
 					</a>
 					<a class="block" href="https://twitter.com/kern_valley" target="_blank" rel="external noopener" itemprop="sameAs">
-						<svg class="icon social-icon">
+						<svg class="icon social-icon" aria-hidden="true">
 							<use xlink:href="/img/icons.svg#twitter" />
 						</svg>
 						<span>On Twitter</span>
 					</a>
 					<a class="block" href="https://www.linkedin.com/company/kernvalley-us/" target="_blank" rel="external noopener" itemprop="sameAs">
-						<svg class="icon social-icon">
+						<svg class="icon social-icon" aria-hidden="true">
 							<use xlink:href="/img/icons.svg#linkedin" />
 						</svg>
 						<span>LinkedIn</span>
@@ -119,19 +118,30 @@
 				</div>
 			</div>
 			<hr />
+			<button is="pwa-install" class="btn btn-primary btn-big btn-wide" src="service-worker.js" scope="/" title="Install Web App" reloadonupdate="" hidden="">
+				<svg class="icon current-color" role="img" aria-hidden="true">
+					<use xlink:href="/img/icons.svg#system-software-install"></use>
+				</svg>
+				<span>Install</span>
+			</button>
+			<hr />
 			<div class="copyright">
-				<span>&copy;</span>
-				<time itemprop="copyrightYear" is="current-year">2019</time>
-				<span itemprop="copyrightHolder" itemtype="https://schema.org/Organization" itemscope="">
-					<a href="https://kernvalley.us" target="_blank" rel="external noopener" itemprop="url">
-						<span itemprop="name">KernValley.US</span>
-						<meta itemprop="logo" content="https://kernvalley.us/img/icon-192.png" />
-					</a>
-				</span>
+				<github-user user="kernvalley">
+					<h3 slot="header" class="center">Created By</h3>
+					<div slot="footer">
+						<span>&copy;</span>
+						<time itemprop="copyrightYear">2020</time>
+						<span itemprop="copyrightHolder" itemtype="https://schema.org/Organization" itemscope="" hidden="">
+							<a href="https://kernvalley.us" target="_blank" rel="external noopener" itemprop="url">
+								<span itemprop="name">KernValley.US</span>
+							</a>
+						</span>
+					</div>
+				</github-user>
 			</div>
 		</footer>
 		<button type="button" is="share-button" class="round shadow fixed z-top" aria-label="Share" text="Weather for the Kern River Valley">
-			<svg class="current-color icon">
+			<svg class="current-color icon" aria-hidden="true">
 				<use xlink:href="/img/icons.svg#public-share"></use>
 			</svg>
 		</button>

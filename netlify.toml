@@ -9,8 +9,8 @@
   for="/*"
   [headers.values]
     Link = '''
-      </css/index.css>; rel=preload; as=style, \
-      </js/index.js>; rel=preload; as=script, \
+      </css/index.min.css>; rel=preload; as=style, \
+      </js/index.min.js>; rel=preload; as=script, \
       </img/icons.svg>; rel=preload; as=image
     '''
     X-Frame-Options = "DENY"
@@ -21,10 +21,10 @@
     Content-Security-Policy = '''
       default-src 'self';
       base-uri 'self';
-      img-src 'self' https://i.imgur.com/ https://secure.gravatar.com https://kernvalley.us https://*.kernvalley.us;
+      img-src 'self' https://i.imgur.com/ https://secure.gravatar.com https://*.githubusercontent.com/u/ https://kernvalley.us https://*.kernvalley.us;
       script-src 'self' https://cdn.kernvalley.us;
       style-src 'self' 'unsafe-inline' https://cdn.kernvalley.us;
-      connect-src 'self' https://i.imgur.com/ https://secure.gravatar.com https://kernvalley.us https://*.kernvalley.us https://api.openweathermap.org/data/2.5/;
+      connect-src 'self' https://api.github.com/users/ https://*.githubusercontent.com/u/ https://i.imgur.com/ https://secure.gravatar.com https://kernvalley.us https://*.kernvalley.us https://api.openweathermap.org/data/2.5/;
       worker-src: 'self';
       font-src 'self' https://cdn.kernvalley.us;
       media-src 'none';
@@ -32,7 +32,6 @@
       manifest-src 'self';
       form-action 'self';
       reflected-xss block;
-      report-uri https://api.kernvalley.us/Errors/CSP/;
       block-all-mixed-content;
       upgrade-insecure-requests;
       disown-opener;'''

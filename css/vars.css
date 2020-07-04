@@ -1,0 +1,5 @@
+:root {
+	--scrollbar-color: var(--accent-color);
+	--scrollbar-track: var(--primary-color);
+	--sidebar-max-width: 30vw;
+}

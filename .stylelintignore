@@ -4,7 +4,7 @@
 /node_modules/
 /_site/
 /css/core-css/
-/css/normalize.css/
+/css/normalize/
 /css/animate.css/
 *.min*
 *.map

@@ -2,4 +2,8 @@
 	--scrollbar-color: var(--accent-color);
 	--scrollbar-track: var(--primary-color);
 	--sidebar-max-width: 30vw;
+	--accent-color-light: #221b7b;
+	--accent-color-dark: var(--accent-color-light);
+	--button-background: var(--accent-color-light);
+	--button-active-background: #120b6b;
 }

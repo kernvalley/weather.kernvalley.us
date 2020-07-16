@@ -17,6 +17,11 @@ const config = {
 		'https://cdn.kernvalley.us/components/weather-current.html',
 		'https://cdn.kernvalley.us/components/github/user.html',
 		'https://cdn.kernvalley.us/components/pwa/prompt.html',
+
+		'https://cdn.kernvalley.us/components/weather-forecast.css',
+		'https://cdn.kernvalley.us/components/weather-current.css',
+		'https://cdn.kernvalley.us/components/github/user.css',
+		'https://cdn.kernvalley.us/components/pwa/prompt.css',
 		/* Social Icons for Web Share API shim */
 		'https://cdn.kernvalley.us/img/octicons/mail.svg',
 		'https://cdn.kernvalley.us/img/logos/facebook.svg',
@@ -33,5 +38,6 @@ const config = {
 		/https:\/\/secure\.gravatar\.com\/avatar\/*/,
 		/https:\/\/i\.imgur\.com\/*/,
 		/https:\/\/api\.openweathermap\.org\/*/,
+		/https:\/\/*\.githubusercontent\.com\/u\/*/,
 	]
 };

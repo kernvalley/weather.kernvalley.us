@@ -16,7 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `.well-known/assetlinks.json` for TWA support
 - Play Store app id for install prompt
 
-### Changed
+### Updated
+- Components now use external stylesheets
+- Enable project-wide linting
+- Block `unsafe-inline` styles in CSP
 - Update service worker cache & config to use minified resources
 
 ### Removed

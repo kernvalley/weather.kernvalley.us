@@ -4,6 +4,28 @@
 	--link-decoration: underline;
 }
 
+weather-forecast {
+	display: block;
+	overflow: auto;
+}
+
+#cities-list.flex.row {
+	gap: 0.4em 1.3em;
+	justify-content: center;
+	margin: 1.3em;
+	padding: 1.3em;
+	border: 1px solid #cecece;
+	border-radius: 4px;
+}
+
+#cities-list.flex.row > a {
+	flex-grow: 1;
+	text-align: center;
+	padding: 0.7em;
+	text-decoration: none;
+	color: var(--alt-color);
+}
+
 .breach.card {
 	background: #c8c8c8;
 }

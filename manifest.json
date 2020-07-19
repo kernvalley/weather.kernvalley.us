@@ -1,40 +1,71 @@
 {
   "name": "Kern Valley Weather",
   "short_name": "KV Weather",
-  "version": "1.1.1",
+  "version": "1.0.0",
   "start_url": "/",
-  "lang": "en",
   "description": "Weather for the Kern River Valley",
+  "display": "standalone",
+  "orientation": "any",
+  "lang": "en",
+  "dir": "ltr",
+  "theme_color": "#221b7b",
+  "background_color": "#242424",
   "icons": [{
     "src": "/img/favicon.svg",
-    "sizes": "any",
-    "type": "image/svg+xml"
+    "sizes": "192x192",
+    "type": "image/svg+xml",
+    "purpose": "maskable any"
   }, {
     "src": "/img/icon-192.png",
     "sizes": "192x192",
-    "type": "image/png"
+    "type": "image/png",
+    "purpose": "maskable any"
   }, {
     "src": "/img/icon-512.png",
     "sizes": "512x512",
-    "type": "image/png"
+    "type": "image/png",
+    "purpose": "maskable any"
   }],
   "screenshots": [{
-    "src": "https://i.imgur.com/ocvXOdsl.jpg",
+    "src": "https://i.imgur.com/ocvXOdsl.png",
     "sizes": "640x365",
-    "type": "image/jpeg"
+    "type": "image/png"
+  }, {
+    "src": "https://i.imgur.com/ocvXOdsm.png",
+    "sizes": "320x182",
+    "type": "image/png"
+  }, {
+    "src": "https://i.imgur.com/ocvXOdst.png",
+    "sizes": "160x91",
+    "type": "image/png"
   }],
-  "theme_color": "#221b7b",
-  "background_color": "#242424",
-  "display": "standalone",
   "developer": {
 		"name": "Chris Zuber",
 		"url": "https://kernvalley.us"
 	},
   "features": [
     "When installed, it will be available and display just like a native app",
-    "Certain content may be available even when on slow networks or offline"
+    "Certain content may be available even when on slow networks or offline",
+    "Shortcuts via long-press to various regions"
   ],
-  "replated_applications": [],
+  "shortcuts": [{
+    "name": "Lake Isabella",
+    "description": "Weather for Lake Isabella",
+    "url": "/#lakeIsabella"
+  }, {
+    "name": "Kernville",
+    "description": "Weather for Kernville",
+    "url": "/#kernville"
+  }, {
+    "name": "Wofford Heights",
+    "description": "Weather for Wofford Heights",
+    "url": "/#woffordHeights"
+  }, {
+    "name": "Weldon",
+    "description": "Weather for Weldon",
+    "url": "/#weldon"
+  }],
+  "related_applications": [],
   "categories": [
     "weather",
     "lifestyle",

@@ -24,7 +24,25 @@
       img-src 'self' https://i.imgur.com/ https://secure.gravatar.com https://*.githubusercontent.com/u/ https://kernvalley.us https://*.kernvalley.us;
       script-src 'self' https://cdn.kernvalley.us;
       style-src 'self' https://cdn.kernvalley.us;
-      connect-src 'self' https://api.github.com/users/ https://cdn.kernvalley.us https://api.openweathermap.org/data/2.5/;
+      connect-src 'self' https://api.github.com/users/ https://cdn.kernvalley.us https://api.openweathermap.org/data/2.5/ ### Added
+- CHANGELOG
+- Dependabot config
+- Super Linter
+- Minifying of JS & CSS
+- Add `<github-user>` to footer
+- `.well-known/assetlinks.json` for TWA support
+- Play Store app id for install prompt
+- Shortcuts / jumplist to weather in various regions
+
+### Updated
+- Update icons to be compatible as "maskable" icons
+- Components now use external stylesheets
+- Enable project-wide linting
+- Block `unsafe-inline` styles in CSP
+- Update service worker cache & config to use minified resources
+
+### Removed
+- Travis-CI config file (just use GitHub Actions);
       worker-src: 'self';
       font-src 'self' https://cdn.kernvalley.us;
       media-src 'none';

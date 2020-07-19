@@ -54,4 +54,4 @@ ready().then(async () => {
 		return a;
 	});
 	document.getElementById('cities-list').append(...btns);
-})
+});

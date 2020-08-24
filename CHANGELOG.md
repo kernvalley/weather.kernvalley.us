@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Google Analytics
+- `htmlhint` linting
+
+### Changed
+- Dynamically load polyfill script
+- Update config
+
+### Removed
+- Duplicate style rules (exist in CDN stylesheets)
+
 ## [v1.0.0] - 2020-07-28
 
 ### Added

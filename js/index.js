@@ -1,6 +1,6 @@
 import 'https://cdn.kernvalley.us/js/std-js/deprefixer.js';
 import 'https://cdn.kernvalley.us/js/std-js/shims.js';
-import 'https://unpkg.com/@webcomponents/custom-elements@1.3.2/custom-elements.min.js';
+import 'https://unpkg.com/@webcomponents/custom-elements@1.4.2/custom-elements.min.js';
 import 'https://cdn.kernvalley.us/components/share-button.js';
 import 'https://cdn.kernvalley.us/components/current-year.js';
 import 'https://cdn.kernvalley.us/components/github/user.js';
@@ -9,12 +9,18 @@ import 'https://cdn.kernvalley.us/components/weather-current.js';
 import 'https://cdn.kernvalley.us/components/weather-forecast.js';
 import 'https://cdn.kernvalley.us/components/ad-block.js';
 import { ready } from 'https://cdn.kernvalley.us/js/std-js/functions.js';
+import { loadScript } from 'https://cdn.kernvalley.us/js/std-js/loader.js';
+import { importGa } from 'https://cdn.kernvalley.us/js/std-js/google-analytics.js';
 import { stateHandler } from './functions.js';
-import { cities, site } from './consts.js';
+import { cities, site, GA } from './consts.js';
 
 document.documentElement.classList.replace('no-js', 'js');
 document.body.classList.toggle('no-dialog', document.createElement('dialog') instanceof HTMLUnknownElement);
 document.body.classList.toggle('no-details', document.createElement('details') instanceof HTMLUnknownElement);
+
+if (typeof GA === 'string' && GA.length !== 0) {
+	importGa(GA);
+}
 
 addEventListener('popstate', stateHandler);
 addEventListener('hashchange', () => {
@@ -44,7 +50,10 @@ if (history.state === null && location.hash !== '') {
 	stateHandler(history);
 }
 
-ready().then(async () => {
+Promise.allSettled([
+	ready(),
+	loadScript('https://cdn.polyfill.io/v3/polyfill.min.js'),
+]).then(async () => {
 	const btns = Object.entries(cities).map(([key, {name}]) => {
 		const a = document.createElement('a');
 		a.href = `/#${key}`;

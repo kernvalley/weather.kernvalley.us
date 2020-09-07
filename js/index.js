@@ -8,7 +8,7 @@ import 'https://cdn.kernvalley.us/components/pwa/install.js';
 import 'https://cdn.kernvalley.us/components/weather-current.js';
 import 'https://cdn.kernvalley.us/components/weather-forecast.js';
 import 'https://cdn.kernvalley.us/components/ad-block.js';
-import { ready } from 'https://cdn.kernvalley.us/js/std-js/functions.js';
+import { ready, $ } from 'https://cdn.kernvalley.us/js/std-js/functions.js';
 import { loadScript } from 'https://cdn.kernvalley.us/js/std-js/loader.js';
 import { importGa } from 'https://cdn.kernvalley.us/js/std-js/google-analytics.js';
 import { stateHandler } from './functions.js';
@@ -19,7 +19,36 @@ document.body.classList.toggle('no-dialog', document.createElement('dialog') ins
 document.body.classList.toggle('no-details', document.createElement('details') instanceof HTMLUnknownElement);
 
 if (typeof GA === 'string' && GA.length !== 0) {
-	importGa(GA);
+	importGa(GA).then(async () => {
+		/* global ga */
+		ga('create', GA, 'auto');
+		ga('set', 'transport', 'beacon');
+		ga('send', 'pageview');
+
+		function outbound() {
+			ga('send', {
+				hitType: 'event',
+				eventCategory: 'outbound',
+				eventAction: 'click',
+				eventLabel: this.href,
+				transport: 'beacon',
+			});
+		}
+
+		function madeCall() {
+			ga('send', {
+				hitType: 'event',
+				eventCategory: 'call',
+				eventLabel: 'Called',
+				transport: 'beacon',
+			});
+		}
+
+		await ready();
+
+		$('a[rel~="external"]').click(outbound, { passive: true, capture: true });
+		$('a[href^="tel:"]').click(madeCall, { passive: true, capture: true });
+	});
 }
 
 addEventListener('popstate', stateHandler);

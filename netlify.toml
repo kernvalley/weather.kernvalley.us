@@ -3,16 +3,9 @@
   base = "./"
   publish = "./"
   command = "npm run build"
-  [build.environment]
-    GIT_LFS_ENABLED = "1"
 [[headers]]
   for="/*"
   [headers.values]
-    Link = '''
-      </css/index.min.css>; rel=preload; as=style, \
-      </js/index.min.js>; rel=preload; as=script, \
-      </img/icons.svg>; rel=preload; as=image
-    '''
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
@@ -22,9 +15,9 @@
       default-src 'self';
       base-uri 'self';
       img-src 'self' https://i.imgur.com/ https://secure.gravatar.com https://*.githubusercontent.com/u/ https://kernvalley.us https://*.kernvalley.us;
-      script-src 'self' https://cdn.kernvalley.us;
+      script-src 'self' https://cdn.kernvalley.us https://cdn.polyfill.io/v3/polyfill.min.js;
       style-src 'self' https://cdn.kernvalley.us;
-      connect-src 'self' https://api.github.com/users/ https://cdn.kernvalley.us https://api.openweathermap.org/data/2.5/ ;
+      connect-src 'self' https://api.github.com/users/ https://cdn.kernvalley.us https://api.openweathermap.org/data/ https://cdn.polyfill.io/v3/polyfill.min.js;
       worker-src: 'self';
       font-src 'self' https://cdn.kernvalley.us;
       media-src 'none';

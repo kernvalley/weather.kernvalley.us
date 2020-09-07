@@ -1,8 +1,10 @@
-:root {
-	--scrollbar-color: var(--accent-color);
-	--scrollbar-track: var(--primary-color);
-	--accent-color-light: #221b7b;
-	--accent-color-dark: var(--accent-color-light);
-	--button-background: var(--accent-color-light);
-	--button-active-background: #120b6b;
+@media all {
+	:root[data-theme], :root:not([data-theme]) {
+		--scrollbar-color: var(--accent-color);
+		--scrollbar-track: var(--primary-color);
+		--accent-color-light: #221b7b;
+		--accent-color-dark: var(--accent-color-light);
+		--button-background: var(--accent-color-light);
+		--button-primary-active-background: #120b6b;
+	}
 }

@@ -1,10 +1,9 @@
 /* eslint no-unused-vars: 0 */
 const config = {
 	version: '1.0.1',
-	fresh: [
-		'/',
-	].map(url => new URL(url, location.origin).href),
+	fresh: [],
 	stale: [
+		'/',
 		'/css/index.min.css',
 		'/js/index.min.js',
 		'/img/icons.svg',
@@ -38,7 +37,7 @@ const config = {
 	allowed: [
 		/https:\/\/secure\.gravatar\.com\/avatar\/*/,
 		/https:\/\/i\.imgur\.com\/*/,
-		/https:\/\/api\.openweathermap\.org\/*/,
+		// /https:\/\/api\.openweathermap\.org\/*/,
 		/https:\/\/*\.githubusercontent\.com\/u\/*/,
 	]
 };

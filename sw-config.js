@@ -16,11 +16,13 @@ const config = {
 		'https://cdn.kernvalley.us/components/weather-current.html',
 		'https://cdn.kernvalley.us/components/github/user.html',
 		'https://cdn.kernvalley.us/components/pwa/prompt.html',
+		'https://cdn.kernvalley.us/components/ad/block.html',
 
 		'https://cdn.kernvalley.us/components/weather-forecast.css',
 		'https://cdn.kernvalley.us/components/weather-current.css',
 		'https://cdn.kernvalley.us/components/github/user.css',
 		'https://cdn.kernvalley.us/components/pwa/prompt.css',
+		'https://cdn.kernvalley.us/components/ad/block.css',
 		/* Social Icons for Web Share API shim */
 		'https://cdn.kernvalley.us/img/octicons/mail.svg',
 		'https://cdn.kernvalley.us/img/logos/facebook.svg',

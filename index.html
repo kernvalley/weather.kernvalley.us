@@ -44,6 +44,8 @@
 		<link rel="preload" href="https://cdn.kernvalley.us/components/weather-forecast.css" as="style" type="text/css" crossorigin="anonymous" referrerpolicy="no-referrer" importance="high" />
 		<link rel="preload" href="https://cdn.kernvalley.us/components/github/user.html" as="fetch" type="text/html" crossorigin="anonymous" referrerpolicy="no-referrer" importance="auto" />
 		<link rel="preload" href="https://cdn.kernvalley.us/components/github/user.css" as="style" type="text/css" crossorigin="anonymous" referrerpolicy="no-referrer" importance="auto" />
+		<link rel="preload" href="https://cdn.kernvalley.us/components/ad/block.html" as="fetch" type="text/html" crossorigin="anonymous" referrerpolicy="no-referrer" importance="auto" />
+		<link rel="preload" href="https://cdn.kernvalley.us/components/ad/block.css" as="style" type="text/css" crossorigin="anonymous" referrerpolicy="no-referrer" importance="auto" />
 		<link rel="preconnect" href="https://api.openweathermap.org/" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<!-- <script type="module" src="/js/index.js" async=""></script> -->
 		<script src="/js/index.min.js" async=""></script>
@@ -71,7 +73,7 @@
 			</ad-block>
 		</main>
 		<aside id="sidebar" class="card shadow">
-			<weather-current postalcode="93240" appid="41ff0542577756523c5fcfaaeabe89d7"></weather-current>
+			<weather-current postalcode="93240" appid="41ff0542577756523c5fcfaaeabe89d7" class="card"></weather-current>
 			<ad-block url="https://events.kernvalley.us">
 				<svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" slot="image" aria-hidden="true">
 					<rect y="3.8323e-7" width="100" height="100" rx="20" ry="20" fill="#4688f4" fill-rule="evenodd"/>

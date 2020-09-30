@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Moved headers to separate headers config file
 - Misc service worker and CSP updates
+- Use new `<ad-block>` component
 
 ## [v1.0.1] - 2020-09-07
 

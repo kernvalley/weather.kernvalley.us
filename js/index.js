@@ -10,10 +10,9 @@ import 'https://cdn.kernvalley.us/components/weather-forecast.js';
 import 'https://cdn.kernvalley.us/components/ad/block.js';
 import { ready, $ } from 'https://cdn.kernvalley.us/js/std-js/functions.js';
 import { loadScript } from 'https://cdn.kernvalley.us/js/std-js/loader.js';
-import { importGa } from 'https://cdn.kernvalley.us/js/std-js/google-analytics.js';
+import { importGa, externalHandler, telHandler, mailtoHandler } from 'https://cdn.kernvalley.us/js/std-js/google-analytics.js';
 import { stateHandler } from './functions.js';
-import { cities, site, GA } from './consts.js';
-import { outbound, madeCall } from './analytics.js';
+import { cities, site, appId, GA } from './consts.js';
 
 document.documentElement.classList.replace('no-js', 'js');
 document.body.classList.toggle('no-dialog', document.createElement('dialog') instanceof HTMLUnknownElement);
@@ -29,39 +28,75 @@ if (typeof GA === 'string' && GA.length !== 0) {
 
 			await ready();
 
-			$('a[rel~="external"]').click(outbound, { passive: true, capture: true });
-			$('a[href^="tel:"]').click(madeCall, { passive: true, capture: true });
+			$('a[rel~="external"]').click(externalHandler, { passive: true, capture: true });
+			$('a[href^="tel:"]').click(telHandler, { passive: true, capture: true });
+			$('a[href^="mailto:"]').click(mailtoHandler, { passive: true, capture: true });
 		});
 	});
 }
 
+function getByPostalCode(zip) {
+	return Object.values(cities).find(city => city.postalCode === parseInt(zip));
+}
+
+Promise.all([
+	customElements.whenDefined('weather-current'),
+	customElements.whenDefined('weather-forecast'),
+]).then(async () => {
+	const WeatherCurrent = customElements.get('weather-current');
+	const WeatherForecast = customElements.get('weather-forecast');
+	const current = new WeatherCurrent({ appId });
+	const forecast = new WeatherForecast({ appId });
+	const cookie = await cookieStore.get({ name: 'last-viewed' });
+
+	current.classList.add('card');
+	forecast.classList.add('card', 'block');
+
+	if (location.hash.length !== 0) {
+		const city = getByPostalCode(location.hash.substr(1));
+		document.title = `${city.name} | ${site.title}`;
+		history.replaceState(city, document.title, location.href);
+		current.postalCode = city.postalCode;
+		forecast.postalCode = city.postalCode;
+	} else if (history.state !== null) {
+		const { name, postalCode } = history.state;
+		document.title = `${name} | ${site.title}`;
+		current.postalCode = postalCode;
+		forecast.postalCode = postalCode;
+	} else if (typeof cookie !== 'undefined') {
+		const city = getByPostalCode(cookie.value);
+		const url = new URL(location.href);
+		url.hash = `#${city.key}`;
+		document.title = `${city.name} | ${site.title}`;
+		history.replaceState(city, document.title, url.href);
+		current.postalCode = city.postalCode;
+		forecast.postalCode = city.postalCode;
+	} else {
+		current.postalCode = cities.lakeIsabella.postalCode;
+		forecast.postalCode = cities.lakeIsabella.postalCode;
+	}
+
+	document.getElementById('current-placeholder').replaceWith(current);
+	document.getElementById('forecast-placeholder').replaceWith(forecast);
+});
+
 addEventListener('popstate', stateHandler);
+
 addEventListener('hashchange', () => {
 	if (location.hash !== '#') {
 		const city = cities[location.hash.substr(1)];
 
 		if (city) {
+			cookieStore.set('last-viewed', city.postalCode);
 			history.pushState(city, `${city.name} | ${site.title}`, location.href);
 		} else {
+			cookieStore.set('last-viewed', cities.lakeIsabella.postalCode);
 			history.pushState(cities.lakeIsabella, document.title, location.href);
 		}
 
 		stateHandler(history);
 	}
 });
-
-if (history.state === null && location.hash !== '') {
-	const city = cities[location.hash.substr(1)];
-
-	if (city) {
-		history.replaceState(city, `${city.name} | ${site.title}`, location.href);
-	} else {
-		history.replaceState(cities.lakeIsabella, document.title, location.href);
-	}
-	stateHandler(history);
-} else {
-	stateHandler(history);
-}
 
 Promise.allSettled([
 	ready(),

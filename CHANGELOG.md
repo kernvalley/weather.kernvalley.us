@@ -7,10 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### [v1.0.2] - 2020-10-20
+
 ### Changed
 - Moved headers to separate headers config file
 - Misc service worker and CSP updates
 - Use new `<ad-block>` component
+- Implement cookie handling
+- Update page loads
+- Create weather components using JS to save requests
+- Update Analytics
 
 ## [v1.0.1] - 2020-09-07
 

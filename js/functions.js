@@ -11,7 +11,8 @@ export async function stateHandler({ state }) {
 			customElements.whenDefined('weather-forecast'),
 		]);
 
-		console.info({name, postalCode});
+		cookieStore.set({ name: 'last-viewed', value: postalCode });
+
 		document.title = `${name} | ${site.title}`;
 		document.querySelectorAll('weather-current, weather-forecast').forEach(el => {
 			el.postalCode = postalCode;

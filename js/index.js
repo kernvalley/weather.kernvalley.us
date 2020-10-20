@@ -52,8 +52,8 @@ Promise.all([
 	current.classList.add('card');
 	forecast.classList.add('card', 'block');
 
-	if (location.hash.length !== 0) {
-		const city = getByPostalCode(location.hash.substr(1));
+	if (location.hash.length  > 1) {
+		const city = cities[location.hash.substr(1)];
 		document.title = `${city.name} | ${site.title}`;
 		history.replaceState(city, document.title, location.href);
 		current.postalCode = city.postalCode;

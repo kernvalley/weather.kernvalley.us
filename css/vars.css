@@ -1,10 +1,17 @@
+@import url("https://cdn.kernvalley.us/css/core-css/theme/default/index.css");
+@import url("https://cdn.kernvalley.us/css/core-css/theme/properties.css");
+
 @media all {
 	:root[data-theme], :root:not([data-theme]) {
 		--scrollbar-color: var(--accent-color);
 		--scrollbar-track: var(--primary-color);
 		--accent-color-light: #221b7b;
 		--accent-color-dark: var(--accent-color-light);
-		--button-background: var(--accent-color-light);
-		--button-primary-active-background: #120b6b;
+		--button-primary-background-light: var(--accent-color-light);
+		--button-primary-background-dark: var(--button-primary-background-light);
+		--button-primary-hover-background-light: var(--button-primary-background-light);
+		--button-primary-hover-background-dark: var(--button-primary-hover-background-light);
+		--button-primary-active-background-light: #120b6b;
+		--button-primary-active-background-dark: var(--button-primary-active-background-light);
 	}
 }

@@ -62,7 +62,7 @@ Promise.all([
 		document.title = `${name} | ${site.title}`;
 		current.postalCode = postalCode;
 		forecast.postalCode = postalCode;
-	} else if (typeof cookie !== 'undefined') {
+	} else if (cookie) {
 		const city = getByPostalCode(cookie.value);
 		const url = new URL(location.href);
 		url.hash = `#${city.key}`;

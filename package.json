@@ -1,6 +1,6 @@
 {
   "name": "kern-valley-weather",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": true,
   "description": "Weather for the Kern River Valley",
   "config": {

@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.0.3] - 2020-12-13
+
+### Added
+- `<button is="app-list">`
+- Theme handling via `cookieStore`
+- App data reset page
+
+### Changed
+- Move `<button is="pwa-install">` to `<nav>`
+
 ### Fixed
 - Correctly get city data from URL hash
 

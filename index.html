@@ -64,11 +64,23 @@
 		<header id="header" class="background-cover background-fixed">
 			<h1 class="center">Kern Valley Weather</h1>
 		</header>
-		<nav id="nav" class="sticky top shadow background-accent color-alt z-top"></nav>
+		<nav id="nav" class="sticky top shadow background-accent color-alt z-3 flex row no-wrap overflow-x-auto">
+			<button is="app-list" id="app-menu" class="float-left" source="krv-weather" hidden="">
+				<svg class="icon" fill="currentColor" width="22" height="22" role="img" aria-hidden="true">
+					<use xlink:href="/img/icons.svg#apps"></use>
+				</svg>
+			</button>
+			<button is="pwa-install" id="install-btn" class="float-right" src="service-worker.js" scope="/" title="Install Web App" reloadonupdate="" hidden="">
+				<svg class="icon current-color" fill="currentColor" width="22" height="22" role="img" aria-hidden="true">
+					<use xlink:href="/img/icons.svg#system-software-install"></use>
+				</svg>
+				<span class="mobile-hidden">Install</span>
+			</button>
+		</nav>
 		<main id="main" class="card shadow center">
 			<div id="forecast-placeholder"></div>
 			<div id="cities-list" class="flex row wrap"></div>
-			<ad-block url="https://ads.kernvalley.us" class="custom-element if-defined">
+			<ad-block url="https://ads.kernvalley.us" class="custom-element if-defined" theme="auto">
 				<span slot="label">Your ad here</span>
 				<span slot="description">Display your ad throughout the Kern River Valley!</span>
 				<ins slot="calltoaction">Ad space available soon.</ins>
@@ -136,13 +148,6 @@
 				</div>
 			</div>
 			<hr />
-			<button is="pwa-install" class="btn btn-primary btn-big btn-wide" src="service-worker.js" scope="/" title="Install Web App" reloadonupdate="" hidden="">
-				<svg class="icon current-color" role="img" aria-hidden="true">
-					<use xlink:href="/img/icons.svg#system-software-install"></use>
-				</svg>
-				<span>Install</span>
-			</button>
-			<hr />
 			<div class="copyright">
 				<github-user user="kernvalley">
 					<h3 slot="header" class="center">Created By</h3>
@@ -163,7 +168,7 @@ referrerpolicy="no-referrer" width="256" height="282"/>
 </a>
 			</div>
 		</footer>
-		<button type="button" is="share-button" class="btn btn-primary round shadow fixed z-top" aria-label="Share" text="Weather for the Kern River Valley">
+		<button type="button" is="share-button" class="btn btn-primary round shadow fixed z-top" aria-label="Share" text="Weather for the Kern River Valley" hidden="">
 			<svg class="current-color icon" aria-hidden="true">
 				<use xlink:href="/img/icons.svg#public-share"></use>
 			</svg>

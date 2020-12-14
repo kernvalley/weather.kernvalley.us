@@ -1,7 +1,7 @@
 {
   "name": "Kern Valley Weather",
   "short_name": "KV Weather",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "start_url": "/",
   "description": "Weather for the Kern River Valley",
   "display": "standalone",

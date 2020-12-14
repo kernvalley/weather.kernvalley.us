@@ -8,15 +8,48 @@ import 'https://cdn.kernvalley.us/components/pwa/install.js';
 import 'https://cdn.kernvalley.us/components/weather-current.js';
 import 'https://cdn.kernvalley.us/components/weather-forecast.js';
 import 'https://cdn.kernvalley.us/components/ad/block.js';
-import { ready, $ } from 'https://cdn.kernvalley.us/js/std-js/functions.js';
+import 'https://cdn.kernvalley.us/components/app/list-button.js';
+import { ready, $, getCustomElement, sleep } from 'https://cdn.kernvalley.us/js/std-js/functions.js';
 import { loadScript } from 'https://cdn.kernvalley.us/js/std-js/loader.js';
+import { init } from 'https://cdn.kernvalley.us/js/std-js/data-handlers.js';
 import { importGa, externalHandler, telHandler, mailtoHandler } from 'https://cdn.kernvalley.us/js/std-js/google-analytics.js';
 import { stateHandler } from './functions.js';
 import { cities, site, appId, GA } from './consts.js';
 
-document.documentElement.classList.replace('no-js', 'js');
-document.body.classList.toggle('no-dialog', document.createElement('dialog') instanceof HTMLUnknownElement);
-document.body.classList.toggle('no-details', document.createElement('details') instanceof HTMLUnknownElement);
+$(document.documentElement).toggleClass({
+	'no-dialog': document.createElement('dialog') instanceof HTMLUnknownElement,
+	'no-details': document.createElement('details') instanceof HTMLUnknownElement,
+	'no-js': false,
+	'js': true,
+});
+
+cookieStore.get({ name: 'theme' }).then(async cookie => {
+	await $.ready;
+	const $ads = $('ad-block:not([theme]), ad-block[theme="auto"]');
+
+	const setTheme = async ({ name, value = 'auto' }) => {
+		if (name === 'theme') {
+			await Promise.all([
+				$(':root, [data-theme]').data({ theme: value }),
+				$('[theme]:not(ad-block)').attr({ theme: value }),
+				$ads.attr({ theme: value }),
+			]);
+		}
+	};
+
+	if (cookie) {
+		await sleep(150);
+		setTheme(cookie);
+	}
+
+	cookieStore.addEventListener('change', ({ changed, deleted }) => {
+		const cookie = [...changed, ...deleted].find(({ name }) => name === 'theme');
+
+		if (cookie) {
+			setTheme(cookie);
+		}
+	});
+});
 
 if (typeof GA === 'string' && GA.length !== 0) {
 	requestIdleCallback(() => {
@@ -39,13 +72,21 @@ function getByPostalCode(zip) {
 }
 
 Promise.all([
-	customElements.whenDefined('weather-current'),
-	customElements.whenDefined('weather-forecast'),
-]).then(async () => {
-	const WeatherCurrent = customElements.get('weather-current');
-	const WeatherForecast = customElements.get('weather-forecast');
+	getCustomElement('weather-current'),
+	getCustomElement('weather-forecast'),
+]).then(async ([WeatherCurrent, WeatherForecast]) => {
 	const current = new WeatherCurrent({ appId });
 	const forecast = new WeatherForecast({ appId });
+
+	cookieStore.get({ name: 'theme' }).then(cookie => {
+		if (cookie && typeof cookie.value === 'string') {
+			$([current, forecast]).attr({ theme: cookie.value });
+		} else {
+			$([current, forecast]).attr({ theme: 'auto' });
+		}
+	});
+	current.theme = 'auto';
+	forecast.theme = 'auto';
 	const cookie = await cookieStore.get({ name: 'last-viewed' });
 
 	current.classList.add('card');
@@ -109,5 +150,7 @@ Promise.allSettled([
 		a.classList.add('btn', 'btn-primary');
 		return a;
 	});
+
 	document.getElementById('cities-list').append(...btns);
+	init().catch(console.error);
 });

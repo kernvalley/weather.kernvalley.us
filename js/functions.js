@@ -1,5 +1,9 @@
 import { ready } from 'https://cdn.kernvalley.us/js/std-js/functions.js';
-import { site } from './consts.js';
+import { site, cities } from './consts.js';
+
+export function getByPostalCode(zip) {
+	return Object.values(cities).find(city => city.postalCode === parseInt(zip));
+}
 
 export async function stateHandler({ state }) {
 	const { name = null, postalCode = NaN } = state || {};

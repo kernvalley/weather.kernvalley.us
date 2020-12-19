@@ -1,5 +1,6 @@
 import 'https://cdn.kernvalley.us/js/std-js/deprefixer.js';
 import 'https://cdn.kernvalley.us/js/std-js/shims.js';
+import 'https://cdn.kernvalley.us/js/std-js/theme-cookie.js';
 import 'https://unpkg.com/@webcomponents/custom-elements@1.4.2/custom-elements.min.js';
 import 'https://cdn.kernvalley.us/components/share-button.js';
 import 'https://cdn.kernvalley.us/components/current-year.js';
@@ -9,11 +10,11 @@ import 'https://cdn.kernvalley.us/components/weather-current.js';
 import 'https://cdn.kernvalley.us/components/weather-forecast.js';
 import 'https://cdn.kernvalley.us/components/ad/block.js';
 import 'https://cdn.kernvalley.us/components/app/list-button.js';
-import { ready, $, getCustomElement, sleep } from 'https://cdn.kernvalley.us/js/std-js/functions.js';
+import { ready, $, getCustomElement } from 'https://cdn.kernvalley.us/js/std-js/functions.js';
 import { loadScript } from 'https://cdn.kernvalley.us/js/std-js/loader.js';
 import { init } from 'https://cdn.kernvalley.us/js/std-js/data-handlers.js';
 import { importGa, externalHandler, telHandler, mailtoHandler } from 'https://cdn.kernvalley.us/js/std-js/google-analytics.js';
-import { stateHandler } from './functions.js';
+import { stateHandler, getByPostalCode } from './functions.js';
 import { cities, site, appId, GA } from './consts.js';
 
 $(document.documentElement).toggleClass({
@@ -23,52 +24,22 @@ $(document.documentElement).toggleClass({
 	'js': true,
 });
 
-cookieStore.get({ name: 'theme' }).then(async cookie => {
-	await $.ready;
-	const $ads = $('ad-block:not([theme]), ad-block[theme="auto"]');
-
-	const setTheme = async ({ name, value = 'auto' }) => {
-		if (name === 'theme') {
-			await Promise.all([
-				$(':root, [data-theme]').data({ theme: value }),
-				$('[theme]:not(ad-block)').attr({ theme: value }),
-				$ads.attr({ theme: value }),
-			]);
-		}
-	};
-
-	if (cookie) {
-		await sleep(150);
-		setTheme(cookie);
-	}
-
-	cookieStore.addEventListener('change', ({ changed, deleted }) => {
-		const cookie = [...changed, ...deleted].find(({ name }) => name === 'theme');
-
-		if (cookie) {
-			setTheme(cookie);
-		}
-	});
-});
-
 if (typeof GA === 'string' && GA.length !== 0) {
 	requestIdleCallback(() => {
 		importGa(GA).then(async ({ ga }) => {
-			ga('create', GA, 'auto');
-			ga('set', 'transport', 'beacon');
-			ga('send', 'pageview');
+			if (ga instanceof Function) {
+				ga('create', GA, 'auto');
+				ga('set', 'transport', 'beacon');
+				ga('send', 'pageview');
 
-			await ready();
+				await ready();
 
-			$('a[rel~="external"]').click(externalHandler, { passive: true, capture: true });
-			$('a[href^="tel:"]').click(telHandler, { passive: true, capture: true });
-			$('a[href^="mailto:"]').click(mailtoHandler, { passive: true, capture: true });
+				$('a[rel~="external"]').click(externalHandler, { passive: true, capture: true });
+				$('a[href^="tel:"]').click(telHandler, { passive: true, capture: true });
+				$('a[href^="mailto:"]').click(mailtoHandler, { passive: true, capture: true });
+			}
 		});
 	});
-}
-
-function getByPostalCode(zip) {
-	return Object.values(cities).find(city => city.postalCode === parseInt(zip));
 }
 
 Promise.all([
@@ -85,6 +56,7 @@ Promise.all([
 			$([current, forecast]).attr({ theme: 'auto' });
 		}
 	});
+
 	current.theme = 'auto';
 	forecast.theme = 'auto';
 	const cookie = await cookieStore.get({ name: 'last-viewed' });

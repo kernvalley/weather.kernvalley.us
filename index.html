@@ -36,7 +36,6 @@
 		<meta name="theme-color" content="#221b7b" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="#221b7b" />
 		<title itemprop="headline">Kern Valley Weather</title>
-		<link rel="preload" href="https://cdn.polyfill.io/v3/polyfill.min.js" as="script" type="text/javascript" crossorigin="anonymous" referrerpolicy="no-referrer" importance="high" />
 		<link rel="preload" href="https://cdn.kernvalley.us/fonts/roboto.woff2" as="font" type="font/woff2" crossorigin="anonymous" importance="auto" />
 		<link rel="preload" href="https://cdn.kernvalley.us/components/weather-current.html" as="fetch" type="text/html" crossorigin="anonymous" referrerpolicy="no-referrer" importance="high" />
 		<link rel="preload" href="https://cdn.kernvalley.us/components/weather-current.css" as="style" type="text/css" crossorigin="anonymous" referrerpolicy="no-referrer" importance="high" />
@@ -47,8 +46,10 @@
 		<link rel="preload" href="https://cdn.kernvalley.us/components/ad/block.html" as="fetch" type="text/html" crossorigin="anonymous" referrerpolicy="no-referrer" importance="auto" />
 		<link rel="preload" href="https://cdn.kernvalley.us/components/ad/block.css" as="style" type="text/css" crossorigin="anonymous" referrerpolicy="no-referrer" importance="auto" />
 		<link rel="preconnect" href="https://api.openweathermap.org/" crossorigin="anonymous" referrerpolicy="no-referrer" />
+		<script src="https://cdn.polyfill.io/v3/polyfill.min.js" crossorigin="anonymous" referrerpolicy="no-referrer" async="" defer="" nomodule=""></script>
+		<script src="https://unpkg.com/@webcomponents/custom-elements@1.4.2/custom-elements.min.js"  crossorigin="anonymous" referrerpolicy="no-referrer" integrity="sha384-xyhN4T4+9VPh8uXl6uWjGzsqwNXN9C2tla8b6zSrSqYlMFUoeCdoxiEJU0js+GNE" async="" defer="" nomodule=""></script>
 		<!-- <script type="module" src="/js/index.js" async=""></script> -->
-		<script src="/js/index.min.js" async=""></script>
+		<script src="/js/index.min.js" referrerpolicy="no-referrer" async="" defer=""></script>
 		<link rel="manifest" href="/manifest.json" />
 		<link rel="license" href="/LICENSE" />
 		<link rel="icon" href="/img/favicon.svg" type="image/svg+xml" sizes="any" />

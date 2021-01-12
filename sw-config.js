@@ -1,7 +1,7 @@
 /* eslint-env serviceworker */
 /* eslint no-unused-vars: 0 */
 const config = {
-	version: '1.0.3',
+	version: '1.1.0',
 	fresh: [
 		'https://apps.kernvalley.us/apps.json',
 	].map(path => new URL(path, location.origin).href),
@@ -35,6 +35,7 @@ const config = {
 		'https://cdn.kernvalley.us/img/adwaita-icons/actions/mail-send.svg',
 		'https://cdn.kernvalley.us/img/logos/instagram.svg',
 		'https://cdn.kernvalley.us/img/keep-kern-clean.svg',
+		'https://cdn.kernvalley.us/img/logos/play-badge.svg',
 		'https://cdn.kernvalley.us/fonts/roboto.woff2',
 	].map(path => new URL(path, location.origin).href),
 	allowed: [

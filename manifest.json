@@ -1,7 +1,7 @@
 {
   "name": "Kern Valley Weather",
-  "short_name": "KV Weather",
-  "version": "1.0.3",
+  "short_name": "KRV Weather",
+  "version": "1.1.0",
   "start_url": "/",
   "description": "Weather for the Kern River Valley",
   "display": "standalone",
@@ -65,7 +65,11 @@
     "description": "Weather for Weldon",
     "url": "/#weldon"
   }],
-  "related_applications": [],
+  "related_applications": [{
+    "platform": "play",
+    "id": "us.kernvalley.weather.twa",
+    "url": "https://play.google.com/store/apps/details?id=us.kernvalley.weather.twa"
+  }],
   "categories": [
     "weather",
     "lifestyle",

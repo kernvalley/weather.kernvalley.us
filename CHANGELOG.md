@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- More clocal cities, determined by postal codes
+
 ### Changed
 - Update design by not including header
 

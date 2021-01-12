@@ -7,11 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v1.1.0] - 2021-01-12
+
 ### Added
-- More clocal cities, determined by postal codes
+- More local cities, determined by postal codes
+- Play Store link/badge in footer
+- `.well-known/assetlinks.json`
 
 ### Changed
 - Update design by not including header
+- Update footer layout
+- Update app `short_name` to "KRV Weather" for consistency
 
 ## [v1.0.3] - 2020-12-13
 

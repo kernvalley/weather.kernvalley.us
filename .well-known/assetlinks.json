@@ -1,5 +1,13 @@
 [{
-      "relation": ["delegate_permission/common.handle_all_urls"],
-      "target" : { "namespace": "android_app", "package_name": "us.kernvalley.weather.twa",
-                   "sha256_cert_fingerprints": ["44:0C:09:C7:D0:66:94:18:9D:29:3F:B8:DA:BF:14:67:E5:2D:71:00:9A:C8:FB:32:B6:F2:55:7A:66:F9:79:85"] }
-    }]
+  "relation": [
+    "delegate_permission/common.handle_all_urls"
+  ],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "us.kernvalley.weather.twa",
+    "sha256_cert_fingerprints": [
+      "44:0C:09:C7:D0:66:94:18:9D:29:3F:B8:DA:BF:14:67:E5:2D:71:00:9A:C8:FB:32:B6:F2:55:7A:66:F9:79:85",
+      "AE:B8:5D:65:70:04:F4:14:5A:27:70:D4:05:7F:99:58:9C:07:7B:16:72:A1:36:EF:FE:18:79:96:64:31:01:FB"
+    ]
+  }
+}]

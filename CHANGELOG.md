@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Add correct asset links signature for Play Store [#111](https://github.com/kernvalley/weather.kernvalley.us/issues/111)
+- Fix typo in some repo links
+
 ## [v1.1.0] - 2021-01-12
 
 ### Added

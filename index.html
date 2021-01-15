@@ -59,12 +59,13 @@
 	</head>
 	<body id="top" class="grid font-main background-primary color-default overflow-x-hidden">
 		<nav id="nav" class="sticky top shadow background-accent color-alt z-3 flex row no-wrap overflow-x-auto">
-			<button is="app-list" id="app-menu" class="float-left" source="krv-weather" hidden="">
+			<button is="app-list" id="app-menu" class="btn nav-btn" source="krv-weather" hidden="">
 				<svg class="icon" fill="currentColor" width="22" height="22" role="img" aria-hidden="true">
 					<use xlink:href="/img/icons.svg#apps"></use>
 				</svg>
 			</button>
-			<button is="pwa-install" id="install-btn" class="float-right" src="service-worker.js" scope="/" title="Install Web App" reloadonupdate="" hidden="">
+			<span class="grow-4"></span>
+			<button is="pwa-install" id="install-btn" class="btn nav-btn" src="service-worker.js" scope="/" title="Install Web App" reloadonupdate="" hidden="">
 				<svg class="icon current-color" fill="currentColor" width="22" height="22" role="img" aria-hidden="true">
 					<use xlink:href="/img/icons.svg#system-software-install"></use>
 				</svg>
@@ -72,6 +73,7 @@
 			</button>
 		</nav>
 		<main id="main" class="card shadow center">
+			<noscript>JavaScript is required for this app.</noscript>
 			<div id="forecast-placeholder"></div>
 			<div class="status-box info">Forecasts are calculated using the minumum and maximum temperatures for a day.</div>
 			<div id="cities-list" class="flex row wrap"></div>
@@ -163,27 +165,23 @@
 			</div>
 			<div>
 				<hr />
-				<div class="flex row wrap app-stores">
-					<a href="https://play.google.com/store/apps/details?id=us.kernvalley.weather.twa" rel="noopener noreferrer" class="inline-block app-store">
-						<img src="https://cdn.kernvalley.us/img/logos/play-badge.svg" alt="Google Play" loading="lazy" decoding="async" crossorigin="anonymous" referrerpolicy="no-referrer" width="180" height="53" />
-					</a>
-				</div>
+				<app-stores class="flex row wrap app-stores"></app-stores>
 			</div>
 			<hr />
-			<div class="copyright flex wrap space-evenly">
+			<div class="copyright flex wrap space-evenly custom-element">
 				<github-user user="kernvalley" loading="lazy">
-					<h3 slot="header" class="center">Created By</h3>
+					<h3 slot="header" class="center if-defined">Created By</h3>
 					<div slot="footer">
 						<span>©</span>
 						<time itemprop="copyrightYear">2021</time>
-						<span itemprop="copyrightHolder" itemtype="https://schema.org/Organization" itemscope="" hidden="">
+						<span itemprop="copyrightHolder" itemtype="https://schema.org/Organization" itemscope="">
 							<a href="https://kernvalley.us" target="_blank" rel="external noopener noreferrer" itemprop="url">
 								<span itemprop="name">KernValley.US</span>
 							</a>
 						</span>
 					</div>
 				</github-user>
-				<a href="https://www.kernriverconservancy.org/?utm_source=kern-valley-maps&amp;utm_medium=web&amp;utm_campaign=keep-kern-clean" target="_blank" rel="noopener noreferrer external" id="keep-kern-clean-badge" class="inline-block" title="#KeepKernClean">
+				<a href="https://www.kernriverconservancy.org/?utm_source=kern-valley-weather&amp;utm_medium=web&amp;utm_campaign=keep-kern-clean" target="_blank" rel="noopener noreferrer external" id="keep-kern-clean-badge" class="inline-block" title="#KeepKernClean">
 				<img src="https://cdn.kernvalley.us/img/keep-kern-clean.svg" alt="#KeepKernClean" decoding="async" loading="lazy" crossorigin="anonymous" referrerpolicy="no-referrer" width="257" height="282" />
 				</a>
 			</div>

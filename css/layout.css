@@ -12,6 +12,22 @@ body.grid {
 	grid-template-columns: 1rem 1fr minmax(var(--sidebar-min-width, 250px), var(--sidebar-max-width, 400px));
 }
 
+#nav {
+	grid-area: nav;
+}
+
+#main {
+	grid-area: main;
+}
+
+#sidebar {
+	grid-area: sidebar;
+}
+
+#footer {
+	grid-area: footer;
+}
+
 weather-current {
 	margin: 0;
 }

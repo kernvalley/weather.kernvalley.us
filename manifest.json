@@ -71,6 +71,9 @@
     "platform": "play",
     "id": "us.kernvalley.weather.twa",
     "url": "https://play.google.com/store/apps/details?id=us.kernvalley.weather.twa"
+  }, {
+    "patform": "webapp",
+    "url": "https://weather.kernvalley.us/manifest.json"
   }],
   "categories": [
     "weather",

@@ -38,9 +38,8 @@ const config = {
 		'https://cdn.kernvalley.us/fonts/roboto.woff2',
 	].map(path => new URL(path, location.origin).href),
 	allowed: [
-		/https:\/\/secure\.gravatar\.com\/avatar\/*/,
 		/https:\/\/i\.imgur\.com\/*/,
-		// /https:\/\/api\.openweathermap\.org\/*/,
+		/https:\/\/api\.openweathermap\.org\/*/,
 		/https:\/\/*\.githubusercontent\.com\/u\/*/,
 	]
 };

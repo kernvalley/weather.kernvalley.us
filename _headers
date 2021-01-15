@@ -15,7 +15,8 @@
 
 /service-worker.js
   link: </js/sw-config.js> rel=preload; as=script
-  Content-Security-Policy: default-src 'self'; connect-src *
+  link: <https://cdn.kernvalley.us/service-worker.js> rel=preload; as=script
+  Content-Security-Policy: default-src 'self'; connect-src *; script-src 'self' https://cdn.kernvalley.us/service-worker.js;
 
 /*
   X-Content-Type-Options: nosniff

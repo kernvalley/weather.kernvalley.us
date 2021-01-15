@@ -65,6 +65,8 @@
     "description": "Weather for Weldon",
     "url": "/#weldon"
   }],
+  "iarc_rating_id": "3de4f171-5b03-4d4a-bd54-1aeb583a574b",
+  "prefer_related_applications": false,
   "related_applications": [{
     "platform": "play",
     "id": "us.kernvalley.weather.twa",

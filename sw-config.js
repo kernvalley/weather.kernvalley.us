@@ -40,7 +40,9 @@ const config = {
 	].map(path => new URL(path, location.origin).href),
 	allowed: [
 		/https:\/\/i\.imgur\.com\/*/,
-		/https:\/\/api\.openweathermap\.org\/*/,
-		/https:\/\/*\.githubusercontent\.com\/u\/*/,
-	]
+	],
+	allowedFresh: [
+		'https://api.openweathermap.org/',
+		'https://githubusercontent/com/u/',
+	],
 };

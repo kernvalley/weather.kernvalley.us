@@ -17,7 +17,7 @@
 /reset
   X-XSS-Protection: 1; mode=block
   X-Frame-Options: DENY
-  Clear-Site- "cache", "cookies", "storage"
+  Clear-Site-Data: "cache", "cookies", "storage"
   Content-Security-Policy: default-src 'self'; script-src 'self' cdn.kernvalley.us/js/
 
 /service-worker.js

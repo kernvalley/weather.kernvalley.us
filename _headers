@@ -1,22 +1,29 @@
 /
+  X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
-  Content-Security-Policy: default-src 'self'; connect-src 'self' https://apps.kernvalley.us/apps.json https://api.github.com/users/ https://cdn.kernvalley.us/ https://www.google-analytics.com/:placeholder/collect https://www.google-analytics.com/collect https://api.openweathermap.org/data/2.5/; font-src https://cdn.kernvalley.us; img-src * data: blob:; script-src 'self' https://cdn.kernvalley.us https://cdn.polyfill.io/v3/polyfill.min.js https://unpkg.com/@webcomponents/ https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://unpkg.com/leaflet@1.7.1/; style-src 'self' https://cdn.kernvalley.us/ https://unpkg.com/; worker-src 'self';
+  Link: </css/index.css>; rel=preload; as=style referrerpolicy=no-referrer;
+  Link: </js/index.js>; rel=preload; as=script referrerpolicy=no-referrer;
+  Content-Security-Policy: default-src 'self'; connect-src 'self' apps.kernvalley.us/apps.json api.github.com/users/ cdn.kernvalley.us/ www.google-analytics.com/:placeholder/collect www.google-analytics.com/collect api.openweathermap.org/data/2.5/; font-src cdn.kernvalley.us; img-src *; script-src 'self' cdn.kernvalley.us cdn.polyfill.io/v3/polyfill.min.js unpkg.com/@webcomponents/ www.google-analytics.com/analytics.js www.googletagmanager.com/gtag/js unpkg.com/leaflet@1.7.1/; style-src 'self' cdn.kernvalley.us/ unpkg.com/; worker-src 'self';
   Origin-Trial: Aicd9vjSW7nobiASoyIM6EqUUcZPj8iveYNaeDmiQja/2HeB61gp0yP+FvpGp9oa2XA+hE1MyJ1jdzu0IvETSAwAAABkeyJvcmlnaW4iOiJodHRwczovL25ldGxpZnkubGl2ZTo0NDMiLCJmZWF0dXJlIjoiQ29va2llU3RvcmUiLCJleHBpcnkiOjE2MDc3OTM2MTEsImlzU3ViZG9tYWluIjp0cnVlfQ==
   Origin-Trial: AsK5RgfETr1IbI9gEZdbthqII201GQ0M+ZleWOV4mXUF07CQBH7iHoLqb/p3DXulOpDT5VtDasy2y+Vohp85JwoAAABleyJvcmlnaW4iOiJodHRwczovL2tlcm52YWxsZXkudXM6NDQzIiwiZmVhdHVyZSI6IkNvb2tpZVN0b3JlIiwiZXhwaXJ5IjoxNjA3NzkwNTIxLCJpc1N1YmRvbWFpbiI6dHJ1ZX0=
 
 /:placeholder/
+  X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
-  Content-Security-Policy: default-src 'self'; connect-src 'self' https://apps.kernvalley.us/apps.json https://api.github.com/users/ https://cdn.kernvalley.us/ https://www.google-analytics.com/*/collect https://www.google-analytics.com/collect https://api.openweathermap.org/data/2.5/; font-src https://cdn.kernvalley.us; img-src * data: blob:; script-src 'self' https://cdn.kernvalley.us https://cdn.polyfill.io/v3/polyfill.min.js https://unpkg.com/@webcomponents/ https://www.google-analytics.com/analytics.js https://www.googletagmanager.com/gtag/js https://unpkg.com/leaflet@1.7.1/; style-src 'self' https://cdn.kernvalley.us/ https://unpkg.com/; worker-src 'self';
+  Link: </css/index.css>; rel=preload; as=style referrerpolicy=no-referrer;
+  Link: </js/index.js>; rel=preload; as=script referrerpolicy=no-referrer;
+  Content-Security-Policy: default-src 'self'; connect-src 'self' apps.kernvalley.us/apps.json api.github.com/users/ cdn.kernvalley.us/ www.google-analytics.com/*/collect www.google-analytics.com/collect api.openweathermap.org/data/2.5/; font-src cdn.kernvalley.us; img-src *; script-src 'self' cdn.kernvalley.us cdn.polyfill.io/v3/polyfill.min.js unpkg.com/@webcomponents/ www.google-analytics.com/analytics.js www.googletagmanager.com/gtag/js unpkg.com/leaflet@1.7.1/; style-src 'self' cdn.kernvalley.us/ unpkg.com/; worker-src 'self';
 
 /reset
   X-XSS-Protection: 1; mode=block
+  X-Frame-Options: DENY
   Clear-Site-Data: "cache", "cookies", "storage"
-  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.kernvalley.us/js/
+  Content-Security-Policy: default-src 'self'; script-src 'self' cdn.kernvalley.us/js/
 
 /service-worker.js
   link: </js/sw-config.js> rel=preload; as=script
-  link: <https://cdn.kernvalley.us/service-worker.js> rel=preload; as=script
-  Content-Security-Policy: default-src 'self'; connect-src *; script-src 'self' https://cdn.kernvalley.us/service-worker.js;
+  link: <//cdn.kernvalley.us/service-worker.js> rel=preload; as=script
+  Content-Security-Policy: default-src 'self'; connect-src *; script-src 'self' cdn.kernvalley.us/service-worker.js;
 
 /*
   X-Content-Type-Options: nosniff

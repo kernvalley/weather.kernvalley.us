@@ -10,7 +10,7 @@ import 'https://cdn.kernvalley.us/components/ad/block.js';
 import 'https://cdn.kernvalley.us/components/app/list-button.js';
 import 'https://cdn.kernvalley.us/components/app/stores.js';
 import 'https://cdn.kernvalley.us/components/install/prompt.js';
-import { ready, loaded, on, toggleClass } from 'https://cdn.kernvalley.us/js/std-js/dom.js';
+import { ready, loaded, on, toggleClass, attr } from 'https://cdn.kernvalley.us/js/std-js/dom.js';
 import { getCustomElement } from 'https://cdn.kernvalley.us/js/std-js/custom-elements.js';
 import { init } from 'https://cdn.kernvalley.us/js/std-js/data-handlers.js';
 import { importGa, externalHandler, telHandler, mailtoHandler } from 'https://cdn.kernvalley.us/js/std-js/google-analytics.js';
@@ -55,9 +55,9 @@ Promise.all([
 
 	cookieStore.get({ name: 'theme' }).then(cookie => {
 		if (cookie && typeof cookie.value === 'string') {
-			$([current, forecast]).attr({ theme: cookie.value });
+			attr([current, forecast], { theme: cookie.value });
 		} else {
-			$([current, forecast]).attr({ theme: 'auto' });
+			attr([current, forecast], { theme: 'auto' });
 		}
 	});
 
@@ -114,9 +114,7 @@ addEventListener('hashchange', () => {
 	}
 });
 
-Promise.allSettled([
-	ready(),
-]).then(async () => {
+ready().then(async () => {
 	const btns = Object.entries(cities).map(([key, {name}]) => {
 		const a = document.createElement('a');
 		a.href = `/#${key}`;
@@ -127,5 +125,6 @@ Promise.allSettled([
 	});
 
 	document.getElementById('cities-list').append(...btns);
+
 	init();
 });

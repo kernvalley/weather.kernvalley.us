@@ -14,6 +14,7 @@ const config = {
 		'https://cdn.kernvalley.us/components/github/user.html',
 		'https://cdn.kernvalley.us/components/pwa/prompt.html',
 		'https://cdn.kernvalley.us/components/ad/block.html',
+		'https://cdn.kernvalley.us/components/install/prompt.html',
 
 		/* JavaScript */
 		'/js/index.min.js',
@@ -25,6 +26,7 @@ const config = {
 		'https://cdn.kernvalley.us/components/github/user.css',
 		'https://cdn.kernvalley.us/components/pwa/prompt.css',
 		'https://cdn.kernvalley.us/components/ad/block.css',
+		'https://cdn.kernvalley.us/components/install/prompt.css',
 
 		/* Images */
 		'/img/icons.svg',
@@ -39,10 +41,12 @@ const config = {
 		'https://cdn.kernvalley.us/fonts/roboto.woff2',
 	].map(path => new URL(path, location.origin).href),
 	allowed: [
-		/https:\/\/i\.imgur\.com\/*/,
+		'https://i.imgur.com/',
+		/\.(jpg|png|webp|svg|gif)$/,
 	],
 	allowedFresh: [
 		'https://api.openweathermap.org/',
 		'https://githubusercontent/com/u/',
+		/\.(html|css|js|json)$/,
 	],
 };

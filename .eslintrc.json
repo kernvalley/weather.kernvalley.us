@@ -8,7 +8,7 @@
         "sourceType": "module",
         "ecmaVersion": 2020
     },
-    "plugins": ["frontmatter"],
+    "plugins": [],
     "rules": {
         "indent": [
             2,

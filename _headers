@@ -2,11 +2,11 @@
   X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: no-referrer
+  Link: <https://unpkg.com/@shgysk8zer0/polyfills@0.0.7/all.min.js>; rel=preload; as=script; referrerpolicy=no-referrer; crossorigin=anonymous;
+  Link: <https://unpkg.com/@shgysk8zer0/kazoo@0.0.13/harden.js>; rel=preload; as=script; referrerpolicy=no-referrer; crossorigin=anonymous;
   Link: </css/index.css>; rel=preload; as=style; referrerpolicy=no-referrer;
   Link: </js/index.js>; rel=preload; as=script; referrerpolicy=no-referrer;
-  Content-Security-Policy: default-src 'self'; connect-src 'self' apps.kernvalley.us/apps.json api.github.com/users/ cdn.kernvalley.us/ www.google-analytics.com/:placeholder/collect www.google-analytics.com/collect api.openweathermap.org/data/2.5/; font-src cdn.kernvalley.us; img-src *; script-src 'self' cdn.kernvalley.us cdn.polyfill.io/v3/polyfill.min.js unpkg.com/@webcomponents/ www.google-analytics.com/analytics.js www.googletagmanager.com/gtag/js unpkg.com/leaflet@1.7.1/; style-src 'self' cdn.kernvalley.us/ unpkg.com/; worker-src 'self';
-  Origin-Trial: Aicd9vjSW7nobiASoyIM6EqUUcZPj8iveYNaeDmiQja/2HeB61gp0yP+FvpGp9oa2XA+hE1MyJ1jdzu0IvETSAwAAABkeyJvcmlnaW4iOiJodHRwczovL25ldGxpZnkubGl2ZTo0NDMiLCJmZWF0dXJlIjoiQ29va2llU3RvcmUiLCJleHBpcnkiOjE2MDc3OTM2MTEsImlzU3ViZG9tYWluIjp0cnVlfQ==
-  Origin-Trial: AsK5RgfETr1IbI9gEZdbthqII201GQ0M+ZleWOV4mXUF07CQBH7iHoLqb/p3DXulOpDT5VtDasy2y+Vohp85JwoAAABleyJvcmlnaW4iOiJodHRwczovL2tlcm52YWxsZXkudXM6NDQzIiwiZmVhdHVyZSI6IkNvb2tpZVN0b3JlIiwiZXhwaXJ5IjoxNjA3NzkwNTIxLCJpc1N1YmRvbWFpbiI6dHJ1ZX0=
+  Content-Security-Policy: default-src 'self'; connect-src 'self' apps.kernvalley.us/apps.json ads.kernvalley.us/api/ events.kernvalley.us/events.json api.github.com/users/ cdn.kernvalley.us/ www.google-analytics.com/:placeholder/collect www.google-analytics.com/collect api.openweathermap.org/data/2.5/ unpkg.com/@shgysk8zer0/; font-src cdn.kernvalley.us; img-src *; script-src 'self' cdn.kernvalley.us cdn.polyfill.io/v3/polyfill.min.js unpkg.com/@webcomponents/ www.google-analytics.com/analytics.js www.googletagmanager.com/gtag/js/ unpkg.com/@shgysk8zer0/ 'nonce-781085d2-6b8b-4e51-af55-41cb063f6861'; style-src 'self' cdn.kernvalley.us/css/ unpkg.com/@shgysk8zer0/; worker-src 'self'; trusted-types empty#html empty#script ga#script-url goog#html weather-current#html weather-forecast#html krv-events#html github-user#html pwa-install; require-trusted-types-for 'script';
 
 /reset
   X-Frame-Options: DENY

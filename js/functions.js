@@ -1,4 +1,4 @@
-import { ready } from 'https://cdn.kernvalley.us/js/std-js/dom.js';
+import { ready } from '@shgysk8zer0/kazoo/dom.js';
 import { site, cities } from './consts.js';
 
 export function getByPostalCode(zip) {

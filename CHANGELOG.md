@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v2.0.0] - 2023-05-17
+
+### Added
+- Implement Trusted Types
+- Implement import maps
+
+### Changed
+- Update to node 18
+- Switch to using unpkg for components and modules
+
 ### Fixed
 - Add correct asset links signature for Play Store [#111](https://github.com/kernvalley/weather.kernvalley.us/issues/111)
 - Fix typo in some repo links

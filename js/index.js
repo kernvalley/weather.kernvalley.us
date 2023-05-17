@@ -1,21 +1,11 @@
-import 'https://cdn.kernvalley.us/js/std-js/deprefixer.js';
-import 'https://cdn.kernvalley.us/js/std-js/shims.js';
-import 'https://cdn.kernvalley.us/js/std-js/theme-cookie.js';
-import 'https://cdn.kernvalley.us/components/share-button.js';
-import 'https://cdn.kernvalley.us/components/current-year.js';
-import 'https://cdn.kernvalley.us/components/github/user.js';
-import 'https://cdn.kernvalley.us/components/weather/current.js';
-import 'https://cdn.kernvalley.us/components/weather/forecast.js';
-import 'https://cdn.kernvalley.us/components/ad/block.js';
-import 'https://cdn.kernvalley.us/components/app/list-button.js';
-import 'https://cdn.kernvalley.us/components/app/stores.js';
-import 'https://cdn.kernvalley.us/components/install/prompt.js';
-import { ready, loaded, on, toggleClass, attr } from 'https://cdn.kernvalley.us/js/std-js/dom.js';
-import { getCustomElement } from 'https://cdn.kernvalley.us/js/std-js/custom-elements.js';
-import { init } from 'https://cdn.kernvalley.us/js/std-js/data-handlers.js';
-import { importGa, externalHandler, telHandler, mailtoHandler } from 'https://cdn.kernvalley.us/js/std-js/google-analytics.js';
+import '@shgysk8zer0/kazoo/theme-cookie.js';
+import { ready, loaded, on, toggleClass, attr } from '@shgysk8zer0/kazoo/dom.js';
+import { init } from '@shgysk8zer0/kazoo/data-handlers.js';
+import { importGa, externalHandler } from '@shgysk8zer0/kazoo/google-analytics.js';
+import { getGooglePolicy } from '@shgysk8zer0/kazoo/trust-policies.js';
 import { stateHandler, getByPostalCode } from './functions.js';
 import { cities, site, appId, GA } from './consts.js';
+import './components.js';
 
 toggleClass([document.documentElement], {
 	'no-dialog': document.createElement('dialog') instanceof HTMLUnknownElement,
@@ -27,15 +17,13 @@ toggleClass([document.documentElement], {
 if (typeof GA === 'string' && GA.length !== 0) {
 	loaded().then(() => {
 		requestIdleCallback(() => {
-			importGa(GA).then(async ({ ga, hasGa }) => {
+			importGa(GA, {}, { policy: getGooglePolicy() }).then(async ({ ga, hasGa }) => {
 				if (hasGa()) {
 					ga('create', GA, 'auto');
 					ga('set', 'transport', 'beacon');
 					ga('send', 'pageview');
 
 					on('a[rel~="external"]', ['click'], externalHandler, { passive: true, capture: true });
-					on('a[href^="tel:"]', ['click'], telHandler, { passive: true, capture: true });
-					on('a[href^="mailto:"]', ['click'], mailtoHandler, { passive: true, capture: true });
 				}
 			});
 		});
@@ -43,9 +31,9 @@ if (typeof GA === 'string' && GA.length !== 0) {
 }
 
 Promise.all([
-	getCustomElement('weather-current'),
-	getCustomElement('weather-forecast'),
-	getCustomElement('install-prompt'),
+	customElements.whenDefined('weather-current'),
+	customElements.whenDefined('weather-forecast'),
+	customElements.whenDefined('install-prompt'),
 ]).then(async ([WeatherCurrent, WeatherForecast, HTMLInstallPromptElement]) => {
 	const current = new WeatherCurrent({ appId });
 	const forecast = new WeatherForecast({ appId });

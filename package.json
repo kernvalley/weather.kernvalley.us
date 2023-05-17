@@ -1,7 +1,8 @@
 {
   "name": "kern-valley-weather",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "private": true,
+  "type": "module",
   "description": "Weather for the Kern River Valley",
   "config": {
     "icons": "icons.csv",
@@ -58,9 +59,9 @@
     "version:bump": "npm run version:bump:patch",
     "version:bump:patch": "npm version --no-git-tag-version patch",
     "version:bump:minor": "npm version --no-git-tag-version minor",
-    "version:bump:major": "npm version --no-git-tag-version patch"
+    "version:bump:major": "npm version --no-git-tag-version major"
   },
   "dependencies": {
-    "netlify-js-app": "^2.0.0"
+    "netlify-js-app": "^3.0.4"
   }
 }

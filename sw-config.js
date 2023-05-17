@@ -1,7 +1,7 @@
 /* eslint-env serviceworker */
 /* eslint no-unused-vars: 0 */
 const config = {
-	version: '1.1.0',
+	version: '2.0.0',
 	fresh: [
 		'https://apps.kernvalley.us/apps.json',
 		'/manifest.json',
@@ -9,24 +9,24 @@ const config = {
 	stale: [
 		/* HTML */
 		'/',
-		'https://cdn.kernvalley.us/components/weather/forecast.html',
-		'https://cdn.kernvalley.us/components/weather/current.html',
-		'https://cdn.kernvalley.us/components/github/user.html',
-		'https://cdn.kernvalley.us/components/pwa/prompt.html',
-		'https://cdn.kernvalley.us/components/ad/block.html',
-		'https://cdn.kernvalley.us/components/install/prompt.html',
+		'https://unpkg.com/@shgysk8zer0/components@0.0.9/weather/forecast.html',
+		'https://unpkg.com/@shgysk8zer0/components@0.0.9/weather/current.html',
+		'https://unpkg.com/@shgysk8zer0/components@0.0.9/github/user.html',
+		'https://unpkg.com/@shgysk8zer0/components@0.0.9/pwa/prompt.html',
+		'https://unpkg.com/@shgysk8zer0/components@0.0.9/krv/ad.html',
+		'https://unpkg.com/@shgysk8zer0/components@0.0.9/install/prompt.html',
 
 		/* JavaScript */
 		'/js/index.min.js',
 
 		/* Stylesheets */
 		'/css/index.min.css',
-		'https://cdn.kernvalley.us/components/weather/forecast.css',
-		'https://cdn.kernvalley.us/components/weather/current.css',
-		'https://cdn.kernvalley.us/components/github/user.css',
-		'https://cdn.kernvalley.us/components/pwa/prompt.css',
-		'https://cdn.kernvalley.us/components/ad/block.css',
-		'https://cdn.kernvalley.us/components/install/prompt.css',
+		'https://unpkg.com/@shgysk8zer0/components@0.0.9/weather/forecast.css',
+		'https://unpkg.com/@shgysk8zer0/components@0.0.9/weather/current.css',
+		'https://unpkg.com/@shgysk8zer0/components@0.0.9/github/user.css',
+		'https://unpkg.com/@shgysk8zer0/components@0.0.9/pwa/prompt.css',
+		'https://unpkg.com/@shgysk8zer0/components@0.0.9/krv/ad.css',
+		'https://unpkg.com/@shgysk8zer0/components@0.0.9/install/prompt.css',
 
 		/* Images */
 		'/img/icons.svg',

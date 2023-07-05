@@ -4,8 +4,8 @@ import { rollupImport, rollupImportMeta } from '@shgysk8zer0/rollup-import';
 
 export default getConfig('./js/index.js', {
 	plugins: [
-		rollupImport('_data/importmap.yml'),
-		rollupImportMeta({ baseURL: 'https://guide.kernvalley.us/' }),
+		rollupImport('./importmap.yml'),
+		rollupImportMeta({ baseURL: 'https://weather.kernvalley.us/' }),
 	],
 	format: 'iife',
 	minify: true,

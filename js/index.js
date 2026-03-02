@@ -1,10 +1,8 @@
 import '@shgysk8zer0/kazoo/theme-cookie.js';
-import { ready, loaded, on, toggleClass, attr } from '@shgysk8zer0/kazoo/dom.js';
+import { ready, on, toggleClass, attr } from '@shgysk8zer0/kazoo/dom.js';
 import { init } from '@shgysk8zer0/kazoo/data-handlers.js';
-import { importGa, externalHandler } from '@shgysk8zer0/kazoo/google-analytics.js';
-import { getGooglePolicy } from '@shgysk8zer0/kazoo/trust-policies.js';
 import { stateHandler, getByPostalCode } from './functions.js';
-import { cities, site, appId, GA } from './consts.js';
+import { cities, site, appId } from './consts.js';
 import './components.js';
 
 toggleClass([document.documentElement], {
@@ -13,22 +11,6 @@ toggleClass([document.documentElement], {
 	'no-js': false,
 	'js': true,
 });
-
-if (typeof GA === 'string' && GA.length !== 0) {
-	loaded().then(() => {
-		requestIdleCallback(() => {
-			importGa(GA, {}, { policy: getGooglePolicy() }).then(async ({ ga, hasGa }) => {
-				if (hasGa()) {
-					ga('create', GA, 'auto');
-					ga('set', 'transport', 'beacon');
-					ga('send', 'pageview');
-
-					on('a[rel~="external"]', ['click'], externalHandler, { passive: true, capture: true });
-				}
-			});
-		});
-	});
-}
 
 Promise.all([
 	customElements.whenDefined('weather-current'),
